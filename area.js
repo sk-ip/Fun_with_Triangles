@@ -14,9 +14,16 @@ function clickHandler() {
     var a = Number(sides[0].value);
     var b = Number(sides[1].value);
     var c = Number(sides[2].value);
-    var s = calculateSemiPerimeter(a, b, c);
-    var area = calculateArea(s, a, b, c);
-    outputBox.innerHTML = `Area of a triangle using heron's formula is ${area.toFixed(2)} units²`;
+
+    if(a<0 | b<0 | c<0) {
+        outputBox.innerHTML = "Values should be positive";
+    } else if(a===0 | b===0 | c===0) {
+        outputBox.innerHTML = "Values should be greater than zero";
+    } else {
+        var s = calculateSemiPerimeter(a, b, c);
+        var area = calculateArea(s, a, b, c);
+        outputBox.innerHTML = `Area of a triangle using heron's formula is ${area.toFixed(2)} units²`;
+    }
 }
 
 submitButRef.addEventListener("click", clickHandler);
