@@ -21,7 +21,9 @@ function clickHandler() {
   a2 = Number(angle2.value)
   a3 = Number(angle3.value)
 
-  if(a1 !== 0 & a2 !== 0 & a3 !== 0) {
+  if(a1<0 | a2<0 | a3<0) {
+    showOutput("All angles should be positive");
+  } else if(a1 !== 0 & a2 !== 0 & a3 !== 0) {
     if(isTriangle(a1, a2, a3)) {
       showOutput("Yay, the angles form a triangle!");
     } else {
