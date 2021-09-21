@@ -8,8 +8,17 @@ function calculateSumOfSquares(a, b) {
 }
 
 function calculateHypotenuse() {
-    hypotenuse = Math.sqrt(calculateSumOfSquares(Number(sides[0].value), Number(sides[1].value)));
-    outputBox.innerHTML = `The length of hypotenuse is ${hypotenuse.toFixed(2)}`;
+    var base = Number(sides[0].value);
+    var height = Number(sides[1].value);
+
+    if(base < 0 | height < 0) {
+        outputBox.innerHTML = "Values should be positive";
+    } else if (base === 0 | height === 0) {
+        outputBox.innerHTML = "Values should not be zero";
+    } else {
+        hypotenuse = Math.sqrt(calculateSumOfSquares(base, height));
+        outputBox.innerHTML = `The length of hypotenuse is ${hypotenuse.toFixed(2)}`;
+    }
 }
 
 submitButRef.addEventListener("click", calculateHypotenuse)
