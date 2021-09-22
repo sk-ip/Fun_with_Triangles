@@ -19,6 +19,8 @@ function clickHandler() {
         outputBox.innerHTML = "Values should be positive";
     } else if(a===0 | b===0 | c===0) {
         outputBox.innerHTML = "Values should be greater than zero";
+    } else if(a + b <= c) {
+        outputBox.innerHTML = 'Make sure a + b > c';
     } else {
         var s = calculateSemiPerimeter(a, b, c);
         var area = calculateArea(s, a, b, c);
